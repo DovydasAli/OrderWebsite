@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+    <div class="container order">
+    <h4>{{ order.number }}</h4>
+    </br>
+        <h5>This order contains these items:</h5>
+        {% for o in order.products.all %}
+        <li>{{ o.product.number }}</li>
+        <p><a href="{% url 'add-order-product-picture' o.product.id %}">Add pictures</a></p>
+            {% if o.imageorderproduct_set.all %}
+                {% for picture in o.imageorderproduct_set.all %}
+                    <img src="{{ picture.image.url }}" class="card-img-top w-25" alt="product picture">
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+        <p><a href="{% url 'add-order-product' %}">Add product</a></p>
+    </div>
+{% endblock %}

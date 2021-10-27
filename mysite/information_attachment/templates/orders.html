@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Orders</h1>
+  <p>Our order list.</p>
+  {% for o in orders %}
+    <li><a href="{% url 'order' o.id %}">{{o.number}}</a>
+      <a href="{% url 'order-update' o.id %}">Change</a>
+      <a href="{% url 'order-delete' o.id %}">Delete</a></li>
+  {% endfor %}
+  <p><a href="{% url 'order-new' %}">Make new order</a></p>
+  <p><a href="{% url 'image-order-product-new' %}">Assign pictures to products</a></p>
+  <p><a href="{% url 'take-product-picture' %}">Take product picture</a></p>
+{% endblock %}

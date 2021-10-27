@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Order website</h1>
+  <p>Welcome!</p>
+  <p>Right now we have:</p>
+  <ul>
+    <li><strong>Products:</strong> {{ num_products }}</li>
+    <li><strong>Orders:</strong> {{ num_orders }}</li>
+    <li><strong>Available products:</strong> {{ num_products_available }}</li>
+  </ul>
+{% endblock %}
